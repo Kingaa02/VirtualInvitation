@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-beer-dark via-purple-900 to-beer-dark min-h-screen;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-2xl;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl bg-white/10 border border-white/30 
+           text-white placeholder-white/50 transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-beer-amber-400 focus:border-transparent;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-3 rounded-xl font-semibold text-beer-dark
+           bg-gradient-to-r from-beer-amber-400 to-beer-amber-500
+           hover:from-beer-amber-500 hover:to-beer-amber-600
+           transform hover:scale-105 active:scale-95
+           shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .beer-glow {
+    @apply relative;
+  }
+  
+  .beer-glow::after {
+    content: '';
+    @apply absolute inset-0 rounded-xl bg-beer-amber-400/20 blur-xl -z-10;
+  }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 
+                 0 0 40px rgba(251, 191, 36, 0.3);
+  }
+  
+  .animate-float-slow {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(251, 191, 36, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.7);
+}
+
+/* Selection */
+::selection {
+  background: rgba(251, 191, 36, 0.4);
+  color: white;
+}
+
+/* BeerMug button reset */
+button.beer-button {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  -webkit-appearance: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-background-origin: initial !important;
+  box-shadow: none !important;
+}
+
+/* Lottie animation container */
+.lottie-container {
+  background: transparent !important;
+}
+.lottie-container svg {
+  background: transparent !important;
+}
