@@ -4,6 +4,7 @@ const AuthContext = createContext(null);
 
 const VALID_USERS = [
   { login: "Piotrek2137", password: "KochamKonie123!", name: "Piotrek" },
+  { login: "KochamPiwo", password: "KochamPiwo2137!", name: "Piwosz" },
 ];
 
 export function AuthProvider({ children }) {
