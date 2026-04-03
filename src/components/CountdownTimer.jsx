@@ -1,8 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 
-// Event configuration
-const EVENT_DATE = new Date("2026-04-03T18:00:00");
-
 function useCountdown(targetDate) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
 
@@ -48,8 +45,8 @@ function CountdownUnit({ value, label }) {
   );
 }
 
-export default function CountdownTimer() {
-  const timeLeft = useCountdown(EVENT_DATE);
+export default function CountdownTimer({ targetDate }) {
+  const timeLeft = useCountdown(targetDate ?? new Date("2026-04-03T18:00:00"));
 
   if (timeLeft.isExpired) {
     return (

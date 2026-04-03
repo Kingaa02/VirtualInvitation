@@ -3,8 +3,34 @@ import { createContext, useContext, useState, useEffect } from "react";
 const AuthContext = createContext(null);
 
 const VALID_USERS = [
-  { login: "Piotrek2137", password: "KochamKonie123!", name: "Piotrek" },
-  { login: "KochamPiwo", password: "KochamPiwo2137!", name: "Piwosz" },
+  {
+    login: "Piotrek2137",
+    password: "KochamKonie123!",
+    name: "Piotrek",
+    event: {
+      date: "03 Kwietnia 2026",
+      dayOfWeek: "Piątek",
+      time: "18:00",
+      timeNote: "punktualnie",
+      place: "Hula Hop",
+      placeNote: "ul. Żytnia 8",
+      isoDate: "2026-04-03T18:00:00",
+    },
+  },
+  {
+    login: "KochamPiwo",
+    password: "KochamPiwo2137!",
+    name: "Piwosze",
+    event: {
+      date: "10 Kwietnia 2026",
+      dayOfWeek: "Piątek",
+      time: "13:30",
+      timeNote: "po zajęciach",
+      place: "Do ustalenia",
+      placeNote: "może plener",
+      isoDate: "2026-04-10T13:30:00",
+    },
+  },
 ];
 
 export function AuthProvider({ children }) {
@@ -35,7 +61,11 @@ export function AuthProvider({ children }) {
         );
 
         if (foundUser) {
-          const userData = { login: foundUser.login, name: foundUser.name };
+          const userData = {
+            login: foundUser.login,
+            name: foundUser.name,
+            event: foundUser.event,
+          };
           localStorage.setItem(
             "beer_invitation_auth",
             JSON.stringify(userData),

@@ -377,8 +377,12 @@ export default function InvitationPage() {
                 <Calendar className='w-7 h-7 text-beer-amber-400' />
               </div>
               <h3 className='text-white font-semibold mb-1'>Data</h3>
-              <p className='text-white/70'>03 Kwietnia 2026</p>
-              <p className='text-white/50 text-sm'>(Piątek)</p>
+              <p className='text-white/70'>
+                {user?.event?.date ?? "Do ustalenia"}
+              </p>
+              <p className='text-white/50 text-sm'>
+                {user?.event?.dayOfWeek ? `(${user.event.dayOfWeek})` : ""}
+              </p>
             </div>
 
             <div className='flex flex-col items-center text-center p-4 rounded-xl bg-white/5'>
@@ -386,8 +390,12 @@ export default function InvitationPage() {
                 <Clock className='w-7 h-7 text-beer-amber-400' />
               </div>
               <h3 className='text-white font-semibold mb-1'>Godzina</h3>
-              <p className='text-white/70'>18:00</p>
-              <p className='text-white/50 text-sm'>jeszcze do ustalenia</p>
+              <p className='text-white/70'>
+                {user?.event?.time ?? "Do ustalenia"}
+              </p>
+              <p className='text-white/50 text-sm'>
+                {user?.event?.timeNote ?? ""}
+              </p>
             </div>
 
             <div className='flex flex-col items-center text-center p-4 rounded-xl bg-white/5'>
@@ -395,8 +403,12 @@ export default function InvitationPage() {
                 <MapPin className='w-7 h-7 text-beer-amber-400' />
               </div>
               <h3 className='text-white font-semibold mb-1'>Miejsce</h3>
-              <p className='text-white/70'>Coffeina Caffe</p>
-              <p className='text-white/50 text-sm'>Też do ustalenia</p>
+              <p className='text-white/70'>
+                {user?.event?.place ?? "Do ustalenia"}
+              </p>
+              <p className='text-white/50 text-sm'>
+                {user?.event?.placeNote ?? ""}
+              </p>
             </div>
           </div>
         </section>
@@ -407,7 +419,11 @@ export default function InvitationPage() {
           <h2 className='text-xl text-white/70 mb-4'>
             ⏰ Odliczanie do spotkania
           </h2>
-          <CountdownTimer />
+          <CountdownTimer
+            targetDate={
+              user?.event?.isoDate ? new Date(user.event.isoDate) : undefined
+            }
+          />
         </section>
 
         {/* Interactive Beer Mug */}
