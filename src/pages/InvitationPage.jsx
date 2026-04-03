@@ -335,7 +335,7 @@ export default function InvitationPage() {
         <section
           className={`text-center mb-12 transition-all duration-700 delay-300 ${mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
           <h1 className='text-4xl md:text-6xl font-bold text-white mb-4 text-shadow-glow'>
-            Cześć, {user?.name || "Gościu"}! 🎉
+            Witajcie, {user?.name || "Gościu"}! 🎉
           </h1>
           <p className='text-xl md:text-2xl text-beer-amber-400 font-medium'>
             Masz zaproszenie na niezapomniany wieczór z piwem!
